@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All users</title>
+
+    <style>
+        table, tr, td, th {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>All Users</h2>
+
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Actions</th>
+        </tr>
+
+        <% for (let user of users) { %>
+            <tr>
+                <td><%= user.id %></td>
+                <td><%= user.email %></td>
+                <td><%= user.username %></td>
+
+                <td>
+                    <!-- Edit -->
+                    <form method="GET" action="/user/<%= user.id %>/edit" style="display:inline;">
+                        <button>Edit</button>
+                    </form>
+
+                    <!-- Delete -->
+                    <form 
+                        method="POST" 
+                        action="/user/<%= user.id %>?_method=DELETE"
+                        style="display:inline;"
+                    >
+                        <button onclick="return confirm('Are you sure?')">
+                            Delete
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        <% } %>
+    </table>
+
+</body>
+</html>
