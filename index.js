@@ -21,7 +21,7 @@ app.set("views", path.join(__dirname, "views"));
 const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "Harshad02@Dudye",
+  password: "*************",
   database: "delta_app"
 });
 
