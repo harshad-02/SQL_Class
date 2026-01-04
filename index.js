@@ -3,6 +3,9 @@ import mysql from "mysql2";
 import path from "path";
 import { fileURLToPath } from "url";
 import methodOverride from "method-override";
+import dotenv from "dotenv";
+dotenv.config();
+
 
 const app = express();
 
@@ -19,11 +22,12 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 const connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "*************",
-  database: "delta_app"
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME
 });
+
 
 app.get("/", (req, res) => {
   const q = "SELECT COUNT(*) AS count FROM user";
