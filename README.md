@@ -48,7 +48,7 @@ SQL_Class/
 ├── .gitignore
 └── README.md
 
----
+```
 
 ## ⚙️ Installation & Setup
 
