@@ -35,6 +35,7 @@ This project demonstrates:
 ---
 
 ## 📂 Project Structure
+```bash
 SQL_Class/
 │
 ├── views/
